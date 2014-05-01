@@ -23,11 +23,11 @@
 </fieldset>
 <fieldset class="form-group">
 	<label for="users_password">Password: </label>
-	<input name="users_password" type="password" placeholder="New password...">
+	<input name="users_password" type="password" placeholder="New password..." value="{{users.0.users_password}}">
 </fieldset>
 <fieldset class="form-group">
 	<label for="users_confirm_password">Confirm Password: </label>
-	<input name="users_confirm_password" type="password" placeholder="Confirm  new password...">
+	<input name="users_confirm_password" type="password" placeholder="Confirm  new password..." value="{{users.0.users_password}}">
 </fieldset>
 
 <a href="/users/"><button class="btn btn-default" type="button">Back</button></a> <input name="users_submit" type="submit" class="btn btn-primary" value="Submit">
