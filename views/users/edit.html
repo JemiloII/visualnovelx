@@ -1,0 +1,34 @@
+<h1>{{title}} {{users.0.users_display_name}}</h1>
+<form method="post">
+<fieldset class="form-group">
+	<label for="users_account_type">Account Type: </label>
+	<select name="users_account_type" required>
+		<option value="user" {{#if regular}} selected {{/if}}>Regular</option>
+		<option value="donor" {{#if donor}} selected {{/if}}>Donator</option>
+		<option value="mod" {{#if mod}} selected {{/if}}>Moderator</option>
+		<option value="admin" {{#if admin}} selected {{/if}}>Admin</option>
+	</select>
+</fieldset>
+<fieldset class="form-group">
+	<label for="users_display_name">Display Name: </label>
+	<input name="users_display_name" type="text" value="{{users.0.users_display_name}}" required>
+</fieldset>
+<fieldset class="form-group">
+	<label for="users_login_name">Login Name: </label>
+	<input name="users_login_name" type="text" value="{{users.0.users_login_name}}" required>
+</fieldset>
+<fieldset class="form-group">
+	<label for="users_email">Email: </label>
+	<input name="users_email" type="email" value="{{users.0.users_email}}" required>
+</fieldset>
+<fieldset class="form-group">
+	<label for="users_password">Password: </label>
+	<input name="users_password" type="password" placeholder="New password...">
+</fieldset>
+<fieldset class="form-group">
+	<label for="users_confirm_password">Confirm Password: </label>
+	<input name="users_confirm_password" type="password" placeholder="Confirm  new password...">
+</fieldset>
+
+<a href="/users/"><button class="btn btn-default" type="button">Back</button></a> <input name="users_submit" type="submit" class="btn btn-primary" value="Submit">
+</form>

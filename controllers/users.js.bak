@@ -1,0 +1,36 @@
+//Controller
+users = {
+	index  : 
+		function(){
+			//require('../models/users.js')('index');
+			res.render('users/add', {
+		        title: 'Add User'
+		    });
+		},
+	add    : 
+		function(){
+			//require('../models/users.js');
+			res.render('users/add', {
+		        title: 'Add User'
+		    });
+		},
+	edit   : 
+		function(){
+			//require('../models/users.js')('edit');
+			res.render('users/edit', {
+		        title: 'Edit User',
+		        id: req.params.id
+		    });
+
+		},
+	show   : 
+		function(){
+			require('../models/users.js')('show');
+		},
+	remove : 
+		function(){
+			require('../models/users.js')('delete');
+		},
+};
+
+module.exports = users;

@@ -1,0 +1,34 @@
+<h1>Add New User</h1>
+<form method="post">
+<fieldset class="form-group">
+	<label for="users_account_type">Account Type: </label>
+	<select name="users_account_type" required>
+		<option value="user" selected>Regular</option>
+		<option value="donor">Donator</option>
+		<option value="mod">Moderator</option>
+		<option value="admin">Admin</option>
+	</select>
+</fieldset>
+<fieldset class="form-group">
+	<label for="users_display_name">Display Name: </label>
+	<input name="users_display_name" type="text" placeholder="Display name..." required>
+</fieldset>
+<fieldset class="form-group">
+	<label for="users_login_name">Login Name: </label>
+	<input name="users_login_name" type="text" placeholder="Login name..." required>
+</fieldset>
+<fieldset class="form-group">
+	<label for="users_email">Email: </label>
+	<input name="users_email" type="email" placeholder="email@example.com" required>
+</fieldset>
+<fieldset class="form-group">
+	<label for="users_password">Password: </label>
+	<input name="users_password" type="password" placeholder="Password..." required>
+</fieldset>
+<fieldset class="form-group">
+	<label for="users_confirm_password">Confirm Password: </label>
+	<input name="users_confirm_password" type="password" placeholder="Confirm password..." required>
+</fieldset>
+
+<a href="/users/"><button class="btn btn-default" type="button">Back</button></a> <input name="users_submit" type="submit" class="btn btn-primary" value="Submit">
+</form>

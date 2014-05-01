@@ -1,0 +1,32 @@
+<h1>{{title}} <a href="/users/add"><button class="btn btn-primary">Add New User</button></a></h1>
+
+<table class="table">
+	<tr>
+		<th>ID</th>
+	    <th>Display Name</th>
+	    <th>Login Name</th>
+	    <th>Email</th>
+	    <th>Password</th>
+	    <th>Account Type</th>
+	    <th>Signup Date</th>
+	    <th>Last Login Date</th>
+	    <th>Options</th>
+	</tr>
+{{#each users}}
+	<tr>
+	    <td>{{users_id}}</td>
+	    <td>{{users_display_name}}</td>
+	    <td>{{users_login_name}}</td>
+	    <td>{{users_email}}</td>
+	    <td>{{users_password}}</td>
+	    <td>{{users_account_type}}</td>
+	    <td>{{users_signup_date}}</td>
+	    <td>{{users_last_login_date}}</td>
+	    <td>
+	    	<a href="/users/show/{{users_id}}"><button class="btn btn-default"><i class="glyphicon glyphicon-ok"></i></button></a>
+	    	<a href="/users/edit/{{users_id}}"><button class="btn btn-default"><i class="glyphicon glyphicon-pencil"></i></button></a>
+	    	<a href="/users/destroy/{{users_id}}"><button class="btn btn-default"><i class="glyphicon glyphicon-trash"></i></button></a>
+	    </td>
+    </tr>
+{{/each}}
+</table>
