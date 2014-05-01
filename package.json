@@ -8,9 +8,7 @@
   "dependencies": {
     "mysql2": "^0.12.1",
     "express3-handlebars": "^0.5.0",
-    "less-middleware": "^0.2.1-beta",
     "express": "^4.1.1",
-    "gulp": "^3.6.2",
-    "mysql": "^2.2.0"
+    "gulp": "^3.6.2"
   }
 }
