@@ -26,6 +26,11 @@ module.exports = function (app, handlebars) {
 	    res.render('errors/404', {layout: 'error'});
 	});
 
+	app.get('/users/:name', function (req, res) {
+		console.log('Users: Show > Routes');
+	    require('../controllers/users.js').show(app, req, res);
+	});
+
 	app.get('/users/show/:id', function (req, res) {
 	    console.log('Users: Show > Routes');
 	    require('../controllers/users.js').show(app, req, res);
