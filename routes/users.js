@@ -10,7 +10,6 @@ module.exports = function (app, handlebars) {
 	app.get('/users/add', function (req, res) {
 		console.log('Users: Add > Routes');
 	    require('../controllers/users.js').add(app, req, res);
-	    //users
 	}); 
 
 	app.get('/users/edit', function (req, res) {
