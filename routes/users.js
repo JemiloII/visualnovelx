@@ -10,7 +10,12 @@ module.exports = function (app, handlebars) {
 	app.get('/users/add', function (req, res) {
 		console.log('Users: Add > Routes');
 	    require('../controllers/users.js').add(app, req, res);
-	}); 
+	});
+
+	app.post('/users/add', function (req, res) {
+		console.log('Users: Add > Routes');
+	    require('../controllers/users.js').add(app, req, res);
+	});
 
 	app.get('/users/edit', function (req, res) {
 		res.render('errors/404', {layout: 'error'});

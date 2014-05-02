@@ -10,10 +10,14 @@ module.exports.index = function(app, req, res){
 
 module.exports.add = function(app, req, res){
 	console.log('Users: Add > Controller');
-	require('../models/users.js').add();
+	if(req.body.users_submit){
+		require('../models/users.js').add(app, req, res);
+	}
 	res.render('users/add', {
         title: 'Add User'
-    });
+    },
+    console.log('Users: Add > View')
+    );
 };
 
 module.exports.edit = function(app, req, res){

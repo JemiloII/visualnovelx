@@ -19,19 +19,27 @@ module.exports.index = function(){
 		}
 	});
 	connection.end();
-
 };
 
-module.exports.add = function(){
-	console.log('Users: Add > Model');
-	return false;
+module.exports.add = function(app, req, res){
+	console.log('Users: Add > Model :: POST');
+	mysql_connect();
+	var moment = require('moment');
+	var today = moment().format('YYYY-MM-DD');
+	var query = 'INSERT INTO users VALUES(NULL, "'+ req.body.users_display_name+'", "'+ req.body.users_login_name +'", "'+ req.body.users_email +'", "'+ req.body.users_password +'", "'+ req.body.users_account_type +'", "'+ today +'", "0000-00-00")';
+	console.log(query);
+	connection.connect();
+	connection.query(query, function(err, rows, fields) {
+		if (err) throw err;
+		console.log(err);
+	});
+	connection.end();
 };
 
 module.exports.edit = function(app, req, res){
 	console.log('Users: Edit > Model');
 	mysql_connect();
 	users = [];
-	account = [];
 
 	connection.connect();
 	connection.query('SELECT * FROM users WHERE users_id="'+req.params.id+'"', function(err, rows, fields) {
@@ -40,8 +48,6 @@ module.exports.edit = function(app, req, res){
 		for(var i=0; i< rows.length; i++){
 			users[i] = rows[i];
 		}
-
-		var account = users[0].users_account_type;
 	});
 	connection.end();
 };
@@ -50,7 +56,6 @@ module.exports.show = function(app, req, res){
 	console.log('Users: Show > Model');
 	mysql_connect();
 	users = [];
-	account = [];
 	if(req.params.id){
 		query='SELECT * FROM users WHERE users_id="'+req.params.id+'"';
 	}else if(req.params.name){
