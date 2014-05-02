@@ -11,7 +11,7 @@ module.exports = function (app, handlebars) {
 		console.log('Users: Add > Routes');
 	    require('../controllers/users.js').add(app, req, res);
 	    //users
-	});
+	}); 
 
 	app.get('/users/edit', function (req, res) {
 		res.render('errors/404', {layout: 'error'});
