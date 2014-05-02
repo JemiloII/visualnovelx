@@ -27,7 +27,10 @@ module.exports.add = function(app, req, res){
 	var moment = require('moment');
 	var today = moment().format('YYYY-MM-DD');
 	var query = 'INSERT INTO users VALUES(NULL, "'+ req.body.users_display_name+'", "'+ req.body.users_login_name +'", "'+ req.body.users_email +'", "'+ req.body.users_password +'", "'+ req.body.users_account_type +'", "'+ today +'", "0000-00-00")';
-	console.log(query);
+	
+	var check_users_login_name = 'SELECT users_login_name FROM users WHERE users_login_name="'+ req.body.users_login_name +'"';
+	var check_users_email = '';
+
 	connection.connect();
 	connection.query(query, function(err, rows, fields) {
 		if (err) throw err;
