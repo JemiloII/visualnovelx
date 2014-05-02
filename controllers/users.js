@@ -19,23 +19,20 @@ module.exports.add = function(app, req, res){
 module.exports.edit = function(app, req, res){
 	console.log('Users: Edit > Controller');
 	require('../models/users.js').edit(app, req, res);
-	
-	console.log(account);
-	params = {
+	res.render('users/edit', {
         title: 'Edit User: ',
-        id: req.params.id,
         users: users,
-    };
-	res.render('users/edit', params);
+        account: account,
+    });
     
 };
 
 module.exports.show = function(app, req, res){
 	console.log('Users: Show > Controller');
-	//require('../models/users.js').show();
+	require('../models/users.js').show(app, req, res);
 	res.render('users/show', {
         title: 'Show User',
-        id: req.params.id
+        users: users,
     });
 };
 
