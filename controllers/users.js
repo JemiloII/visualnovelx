@@ -26,7 +26,6 @@ module.exports.edit = function(app, req, res){
 	res.render('users/edit', {
         title: 'Edit User: ',
         users: users,
-        account: account,
     });
     
 };

@@ -1,0 +1,74 @@
+body{
+	background: rgb(69,72,77,1); /* Old browsers */
+	background: -moz-radial-gradient(center, ellipse farthest-corner,  rgba(69,72,77,1) 0%, rgba(0,0,0,1) 100%) no-repeat fixed; /* FF3.6+ */
+	background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,rgba(69,72,77,1)), color-stop(100%,rgba(0,0,0,1))) no-repeat fixed; /* Chrome,Safari4+ */
+	background: -webkit-radial-gradient(center, ellipse farthest-corner,  rgba(69,72,77,1) 0%,rgba(0,0,0,1) 100%) no-repeat fixed; /* Chrome10+,Safari5.1+ */
+	background: -o-radial-gradient(center, ellipse farthest-corner,  rgba(69,72,77,1) 0%,rgba(0,0,0,1) 100%) no-repeat fixed; /* Opera 12+ */
+	background: -ms-radial-gradient(center, ellipse farthest-corner,  rgba(69,72,77,1) 0%,rgba(0,0,0,1) 100%) no-repeat fixed; /* IE10+ */
+	background: radial-gradient(ellipse farthest-corner at center,  rgba(69,72,77,1) 0%,rgba(0,0,0,1) 100%) no-repeat fixed; /* W3C */
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+
+	color: rgb(220,220,220);
+	margin: 10% auto;
+	text-align: center;
+}
+a{
+	color: rgb(220,220,220);
+}
+a:hover{
+	color: rgb(100,100,100);
+}
+h1{
+	font-size: 10rem;
+}
+h1 i{
+	font-size: 11rem;
+}
+
+ul.social-icons{	
+	margin-top: 3rem;
+}
+
+ul.social-icons li{
+	display: inline;
+	text-decoration: none;
+	margin-right: 3rem;
+}
+
+fieldset:first-child label{
+	display: block;
+	font-size: 4.44rem;
+}
+
+fieldset:last-child{
+	display: inline;
+	font-size: 2rem;
+	margin-top: 1rem;
+}
+
+input[type='email']{
+	width: 25.5rem;
+	height: 4.25rem;
+	border: none;
+	border-radius: 2rem;
+	padding: 1rem 2rem;
+	font-size: 1.5rem;
+	color: rgb(100,100,100);
+	font-weight: bolder;
+}
+
+input[type='submit']{
+	background: rgb(150,150,150);
+	width: 12.5rem;
+	height: 4.25rem;
+	border: none;
+	border-radius: 2rem;
+	padding: 1rem;
+	margin-left: -4rem;
+	color: rgb(255,255,255);
+	font-weight: bolder;
+	font-size: 1.5rem;
+}

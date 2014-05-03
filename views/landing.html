@@ -1,0 +1,49 @@
+<h1>Visual Novel <i class="fa fa-times"></i></h1>
+<form method="post" action="/users/signup">
+	<fieldset class="get_email">
+		<label for="users_email">Stay Connected!</label>
+		<input name="users_email" type="email" placeholder="Enter your email...">
+		<input name="users_submit" type="submit" value="Connect!">
+	</fieldset>
+
+	<!-- HIDE -->
+		<fieldset class="form-group hide">
+			<label for="users_display_name">Username: </label>
+			<input name="users_display_name" type="text" placeholder="Create your username..." required>
+		</fieldset>
+		<fieldset class="form-group hide">
+			<label for="users_password">Password: </label>
+			<input name="users_password" type="password" placeholder="Create your password..." required>
+		</fieldset>
+		<fieldset class="form-group hide">
+			<label for="users_confirm_password">Confirm Password: </label>
+			<input name="users_confirm_password" type="password" placeholder="Confirm your password..." required>
+		</fieldset>
+		<fieldset class="form-group hide">
+			<input name="users_submit" type="submit" class="btn btn-primary" value="Submit">
+		</fieldset>
+	<!-- /HIDE -->
+
+	<fieldset class="create_account">
+		<label class="users_create_account">Create an account? </label>
+		<input name="users_create_account" type="radio" value="yes">Yes
+		<input name="users_create_account" type="radio" value="no" checked>No
+	</fieldset>
+</form>
+<ul class="social-icons">
+	<li><a href="http://fb.com/visualnovelx"><i class="fa fa-facebook fa-3x"></i></a></li>
+	<li><a href="http://www.twitter.com/visualnovelx"><i class="fa fa-twitter fa-3x"></i></a></li>
+	<li><a href=""><i class="fa fa-google-plus fa-3x"></i></a></li>
+	<li><a href=""><i class="fa fa-instagram fa-3x"></i></a></li>
+</ul>
+<!--<p>Donate with Bitcoins 1LouFXYz5mamMz8pFctrrDgARs4wftL8vB</p>-->
+
+<script>
+	$('input[name="users_create_account"]').click(function(){
+		if($('input[name="users_create_account"]:checked').val() === 'yes'){
+			$('input[type="submit"][value="Connect!"]').hide();
+		}else{
+			$('input[type="submit"][value="Connect!"]').show();
+		}
+	});
+</script>
