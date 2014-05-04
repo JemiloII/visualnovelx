@@ -8,24 +8,20 @@
 
 	<!-- HIDE -->
 		<fieldset class="form-group hide">
-			<label for="users_display_name">Username: </label>
-			<input name="users_display_name" type="text" placeholder="Create your username..." required>
+			<input name="users_display_name" type="text" placeholder="Create your username..." disabled>
+
+			<input name="users_password" type="password" placeholder="Enter your password..." disabled>
+
+			<input name="users_confirm_password" type="password" placeholder="Confirm your password..." disabled>
 		</fieldset>
-		<fieldset class="form-group hide">
-			<label for="users_password">Password: </label>
-			<input name="users_password" type="password" placeholder="Create your password..." required>
-		</fieldset>
-		<fieldset class="form-group hide">
-			<label for="users_confirm_password">Confirm Password: </label>
-			<input name="users_confirm_password" type="password" placeholder="Confirm your password..." required>
-		</fieldset>
-		<fieldset class="form-group hide">
-			<input name="users_submit" type="submit" class="btn btn-primary" value="Submit">
+		<fieldset class="form-group users_buttons hide">
+			<button name="users_cancel" type="button" value="Cancel">Cancel</button>
+			<input name="users_submit" type="submit" value="Create!">
 		</fieldset>
 	<!-- /HIDE -->
 
 	<fieldset class="create_account">
-		<label class="users_create_account">Create an account? </label>
+		<span class="users_create_account">Create an account? </span>
 		<input name="users_create_account" type="radio" value="yes">Yes
 		<input name="users_create_account" type="radio" value="no" checked>No
 	</fieldset>
@@ -41,9 +37,18 @@
 <script>
 	$('input[name="users_create_account"]').click(function(){
 		if($('input[name="users_create_account"]:checked').val() === 'yes'){
-			$('input[type="submit"][value="Connect!"]').hide();
+			$('input[type="submit"][value="Connect!"]').toggleClass('hide');
+			$('.form-group').find('input').removeAttr('disabled').attr('required','');
+			$('.create_account').toggleClass('hide');
+			$('.form-group').toggleClass('hide');
 		}else{
-			$('input[type="submit"][value="Connect!"]').show();
+			$('input[type="submit"][value="Connect!"]').toggleClass('hide');
+			$('.form-group').find('input').removeAttr('required').attr('disabled', '');
+			$('.create_account').toggleClass('hide');
+			$('.form-group').toggleClass('hide');
 		}
 	});
+	$('button[name="users_cancel"]').click(function(){
+		$('input[name="users_create_account"][value="no"]').click();
+});
 </script>
