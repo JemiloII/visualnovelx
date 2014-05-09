@@ -1,37 +1,45 @@
 <h1>Visual Novel <i class="fa fa-times"></i></h1>
-<form method="post" action="/users/signup">
-	<fieldset class="get_email">
-		<label for="users_email">Stay Connected!</label>
-		<input name="users_email" type="email" placeholder="Enter your email...">
-		<input name="users_submit" type="submit" value="Connect!">
-	</fieldset>
-
-	<!-- HIDE -->
-		<fieldset class="form-group hide">
-			<input name="users_display_name" type="text" placeholder="Create your username..." disabled>
-
-			<input name="users_password" type="password" placeholder="Enter your password..." disabled>
-
-			<input name="users_confirm_password" type="password" placeholder="Confirm your password..." disabled>
+<section class="row">
+	<article class="form">
+	<form method="post" action="/users/signup">
+		<fieldset class="get_email">
+			<label for="users_email">Stay Connected!</label>
+			<input name="users_email" type="email" placeholder="Enter your email...">
+			<input name="users_submit" type="submit" value="Connect!">
 		</fieldset>
-		<fieldset class="form-group users_buttons hide">
-			<button name="users_cancel" type="button" value="Cancel">Cancel</button>
-			<input name="users_submit" type="submit" value="Create!">
-		</fieldset>
-	<!-- /HIDE -->
 
-	<fieldset class="create_account">
-		<span class="users_create_account">Create an account? </span>
-		<input name="users_create_account" type="radio" value="yes">Yes
-		<input name="users_create_account" type="radio" value="no" checked>No
-	</fieldset>
-</form>
-<ul class="social-icons">
-	<li><a href="http://fb.com/visualnovelx"><i class="fa fa-facebook fa-3x"></i></a></li>
-	<li><a href="http://www.twitter.com/visualnovelx"><i class="fa fa-twitter fa-3x"></i></a></li>
-	<li><a href=""><i class="fa fa-google-plus fa-3x"></i></a></li>
-	<li><a href=""><i class="fa fa-instagram fa-3x"></i></a></li>
-</ul>
+		<!-- HIDE -->
+			<fieldset class="form-group hide">
+				<input name="users_display_name" type="text" placeholder="Create your username..." disabled>
+
+				<input name="users_password" type="password" placeholder="Enter your password..." disabled>
+
+				<input name="users_confirm_password" type="password" placeholder="Confirm your password..." disabled>
+			</fieldset>
+			<fieldset class="form-group users_buttons hide">
+				<button name="users_cancel" type="button" value="Cancel">Cancel</button>
+				<input name="users_submit" type="submit" value="Create!">
+			</fieldset>
+		<!-- /HIDE -->
+
+		<fieldset class="create_account">
+			<span class="users_create_account">Create an account? </span>
+			<input name="users_create_account" type="radio" id="yes" value="yes"><label for="yes">Yes</label>
+			<input name="users_create_account" type="radio" id="no" value="no" checked><label for="no">No</label>
+		</fieldset>
+	</form>
+	<ul class="social-icons">
+		<li><a href="http://fb.com/visualnovelx"><i class="fa fa-facebook fa-3x"></i></a></li>
+		<li><a href="http://www.twitter.com/visualnovelx"><i class="fa fa-twitter fa-3x"></i></a></li>
+		<li><a href=""><i class="fa fa-google-plus fa-3x"></i></a></li>
+		<li><a href=""><i class="fa fa-instagram fa-3x"></i></a></li>
+	</ul>
+	</article>
+	<aside class="mascot">
+		<img src="images/characters/ayase/ayase_sm.png">
+		<div class="ayase_expression"></div>
+	</aside>
+</section>
 <!--<p>Donate with Bitcoins 1LouFXYz5mamMz8pFctrrDgARs4wftL8vB</p>-->
 
 <script>
@@ -41,14 +49,26 @@
 			$('.form-group').find('input').removeAttr('disabled').attr('required','');
 			$('.create_account').toggleClass('hide');
 			$('.form-group').toggleClass('hide');
+			height = $('section').height();
+			newHeight = height + 45;
+			$('aside').height(newHeight);
 		}else{
 			$('input[type="submit"][value="Connect!"]').toggleClass('hide');
 			$('.form-group').find('input').removeAttr('required').attr('disabled', '');
 			$('.create_account').toggleClass('hide');
 			$('.form-group').toggleClass('hide');
+			height = $('section').height();
+			newHeight = height + 45;
+			$('aside').height(newHeight);
 		}
 	});
 	$('button[name="users_cancel"]').click(function(){
 		$('input[name="users_create_account"][value="no"]').click();
-});
+	});
+
+	$(function(){
+		var height = $('section').height();
+		newHeight = height + 45;
+		$('aside').height(newHeight);
+	});
 </script>
