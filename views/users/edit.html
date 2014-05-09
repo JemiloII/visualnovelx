@@ -1,12 +1,17 @@
 <h1>{{title}} {{users.0.users_display_name}}</h1>
+<script> 
+	$(function(){
+		$('option[value="{{users.0.users_account_type}}"]').attr('selected', '');
+	});
+</script>
 <form method="post">
 <fieldset class="form-group">
 	<label for="users_account_type">Account Type: </label>
 	<select name="users_account_type" required>
-		<option value="user" {{#if regular}} selected {{/if}}>Regular</option>
-		<option value="donor" {{#if donor}} selected {{/if}}>Donator</option>
-		<option value="mod" {{#if mod}} selected {{/if}}>Moderator</option>
-		<option value="admin" {{#if admin}} selected {{/if}}>Admin</option>
+		<option value="user">Regular</option>
+		<option value="donor">Donator</option>
+		<option value="mod">Moderator</option>
+		<option value="admin">Admin</option>
 	</select>
 </fieldset>
 <fieldset class="form-group">
@@ -23,11 +28,11 @@
 </fieldset>
 <fieldset class="form-group">
 	<label for="users_password">Password: </label>
-	<input name="users_password" type="password" placeholder="New password...">
+	<input name="users_password" type="password" placeholder="New password..." value="{{users.0.users_password}}">
 </fieldset>
 <fieldset class="form-group">
 	<label for="users_confirm_password">Confirm Password: </label>
-	<input name="users_confirm_password" type="password" placeholder="Confirm  new password...">
+	<input name="users_confirm_password" type="password" placeholder="Confirm  new password..." value="{{users.0.users_password}}">
 </fieldset>
 
 <a href="/users/"><button class="btn btn-default" type="button">Back</button></a> <input name="users_submit" type="submit" class="btn btn-primary" value="Submit">

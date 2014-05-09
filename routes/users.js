@@ -10,7 +10,11 @@ module.exports = function (app, handlebars) {
 	app.get('/users/add', function (req, res) {
 		console.log('Users: Add > Routes');
 	    require('../controllers/users.js').add(app, req, res);
-	    //users
+	});
+
+	app.post('/users/add', function (req, res) {
+		console.log('Users: Add > Routes');
+	    require('../controllers/users.js').add(app, req, res);
 	});
 
 	app.get('/users/edit', function (req, res) {
@@ -24,6 +28,11 @@ module.exports = function (app, handlebars) {
 
 	app.get('/users/show', function (req, res) {
 	    res.render('errors/404', {layout: 'error'});
+	});
+
+	app.get('/users/:name', function (req, res) {
+		console.log('Users: Show > Routes');
+	    require('../controllers/users.js').show(app, req, res);
 	});
 
 	app.get('/users/show/:id', function (req, res) {

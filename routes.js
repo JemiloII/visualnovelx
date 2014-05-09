@@ -1,8 +1,8 @@
+// Default Routes
+
 module.exports = function (app, handlebars) {
 	app.get('/', function (req, res) {
-	    res.render('home', {
-	        title: 'Home'
-	    });
+	    res.render('landing', {layout: 'landing'});
 	});
 
 	require('./routes/users.js')(app, handlebars);

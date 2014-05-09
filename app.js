@@ -1,6 +1,6 @@
 var express  = require('express');
 var exphbr   = require('express3-handlebars');
-
+var bodyParser   = require('body-parser');
 var app = express(), handlebars;
 
 // Create `ExpressHandlebars` instance with a default layout.
@@ -25,6 +25,8 @@ app.use(function(req, res, next) {
         next();
     }
 });
+
+app.use(bodyParser.urlencoded());
 
 require("./routes")(app, handlebars);
 
