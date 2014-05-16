@@ -98,7 +98,7 @@ input[type='submit'], button[name="users_cancel"]{
 	font-size: 1.5rem;
 }
 
-input[value="Connect!"]{
+input[value="Connect"]{
 	margin-left: -4rem;
 }
 
@@ -129,4 +129,8 @@ input[value="Connect!"]{
 
 aside{
 	overflow: hidden;
+}
+
+.up{
+	margin-top: -8rem;
 }

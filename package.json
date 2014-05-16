@@ -6,10 +6,10 @@
     "start": "node-dev app.js"
   },
   "dependencies": {
-    "mysql2": "^0.12.1",
-    "express3-handlebars": "^0.5.0",
-    "express": "^4.1.1",
-    "gulp": "^3.6.2",
+    "mysql2": "~0.12.1",
+    "express3-handlebars": "~0.5.0",
+    "express": "~4.1.1",
+    "gulp": "~3.6.2",
     "body-parser": "~1.0.2",
     "moment": "~2.6.0"
   }

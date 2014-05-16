@@ -8,16 +8,27 @@ module.exports.index = function(app, req, res){
     }, console.log('Users: Index > View'));
 };
 
-module.exports.add = function(app, req, res){
+module.exports.add = function(app, req, res, page){
 	console.log('Users: Add > Controller');
-	if(req.body.users_submit){
-		require('../models/users.js').add(app, req, res);
+	console.log(req.body.users_submit);
+	if(req.body.users_submit === 'add'){
+		var page = 'add';
+		require('../models/users').add(app, req, res, page);
+	}else{
+		var page = 'signup';
+		require('../models/users').add(app, req, res, page);
 	}
-	res.render('users/add', {
-        title: 'Add User'
-    },
-    console.log('Users: Add > View')
-    );
+
+	if(page === 'add'){
+		res.render('/users/add', {
+	        title: 'Add User'
+	    }, console.log('Users: Add > View'));
+	}else{
+		var title = 'Your Connected!';
+		var msg = 'You have successfully connected with '+req.body.users_email+'!';
+		var set = true;
+		res.redirect('/success')(title, msg, set);
+	}
 };
 
 module.exports.edit = function(app, req, res){
@@ -27,7 +38,6 @@ module.exports.edit = function(app, req, res){
         title: 'Edit User: ',
         users: users,
     });
-    
 };
 
 module.exports.show = function(app, req, res){
@@ -41,9 +51,27 @@ module.exports.show = function(app, req, res){
 
 module.exports.destroy = function(app, req, res){
 	console.log('Users: Destroy > Controller');
-	//require('../models/users.js')('destroy');
+	require('../models/users.js').destroy(app, req, res);
 	res.render('users/destroy', {
         title: 'Delete User',
         id: req.params.id
     });
+};
+
+module.exports.signup = function(app, req, res){
+	console.log('Users: Signup > Controller');
+	if(req.body.users_submit === 'Connect'){
+		require('../models/users.js').signup(app, req, res);
+		res.render('users/add', {
+	        title: 'Add User'
+	    }, 
+
+	    console.log('Users: Signup > View'));
+	
+	}else if(req.body.users_submit === 'Create'){
+		require('../models/users.js').add(app, req, res);
+		res.render('users/success', {
+	        title: 'Account Created Successfully'
+	    });
+	}
 };

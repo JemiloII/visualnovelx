@@ -21,12 +21,20 @@ module.exports.index = function(){
 	connection.end();
 };
 
-module.exports.add = function(app, req, res){
+module.exports.add = function(app, req, res, page){
 	console.log('Users: Add > Model :: POST');
+
+	var users_display_name = (req.body.users_display_name)?req.body.users_display_name:null;
+	var users_login_name  = (req.body.users_login_name)?req.body.users_login_name:null;
+	var users_email  = (req.body.users_email)?req.body.users_email:null;
+	var users_password  = (req.body.users_password)?req.body.users_password:null;
+	var users_account_type  = (req.body.users_account_type)?req.body.users_account_type:null;
+
+
 	mysql_connect();
 	var moment = require('moment');
 	var today = moment().format('YYYY-MM-DD');
-	var query = 'INSERT INTO users VALUES(NULL, "'+ req.body.users_display_name+'", "'+ req.body.users_login_name +'", "'+ req.body.users_email +'", "'+ req.body.users_password +'", "'+ req.body.users_account_type +'", "'+ today +'", "0000-00-00")';
+	var query = 'INSERT INTO users VALUES(NULL, "'+ users_display_name +'", "'+ users_login_name +'", "'+ users_email +'", "'+ users_password +'", "'+ users_account_type +'", "'+ today +'", "0000-00-00")';
 	
 	var check_users_login_name = 'SELECT users_login_name FROM users WHERE users_login_name="'+ req.body.users_login_name +'"';
 	var check_users_email = '';
@@ -60,9 +68,9 @@ module.exports.show = function(app, req, res){
 	mysql_connect();
 	users = [];
 	if(req.params.id){
-		query='SELECT * FROM users WHERE users_id="'+req.params.id+'"';
+		query ='SELECT * FROM users WHERE users_id="'+req.params.id+'"';
 	}else if(req.params.name){
-		query= 'SELECT * FROM users WHERE users_login_name="'+req.params.name+'"';
+		query = 'SELECT * FROM users WHERE users_login_name="'+req.params.name+'"';
 	}
 
 	connection.connect();
