@@ -6,5 +6,11 @@ module.exports = function (app, handlebars) {
 	    res.render('landing', {layout: 'landing'});
 	});
 
+	app.get('/success', function (req, res) {
+	    res.render('success', {
+	    	layout: 'landing'
+	    });
+	});
+
 	require('./routes/users')(app, handlebars);
 };

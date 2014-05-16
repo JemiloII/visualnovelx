@@ -21,7 +21,7 @@ module.exports.index = function(){
 	connection.end();
 };
 
-module.exports.add = function(app, req, res){
+module.exports.add = function(app, req, res, page){
 	console.log('Users: Add > Model :: POST');
 
 	var users_display_name = (req.body.users_display_name)?req.body.users_display_name:null;

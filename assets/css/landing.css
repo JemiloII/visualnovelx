@@ -130,3 +130,7 @@ input[value="Connect"]{
 aside{
 	overflow: hidden;
 }
+
+.up{
+	margin-top: -8rem;
+}

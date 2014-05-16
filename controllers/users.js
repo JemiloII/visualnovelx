@@ -13,21 +13,21 @@ module.exports.add = function(app, req, res, page){
 	console.log(req.body.users_submit);
 	if(req.body.users_submit === 'add'){
 		var page = 'add';
-		require('../models/users.js').add(app, req, res, page);
-	}else if(req.body.users_submit === 'Connect'){
+		require('../models/users').add(app, req, res, page);
+	}else{
 		var page = 'signup';
-		require('../models/users.js').add(app, req, res, page);
+		require('../models/users').add(app, req, res, page);
 	}
 
 	if(page === 'add'){
-		res.render('users/add', {
+		res.render('/users/add', {
 	        title: 'Add User'
 	    }, console.log('Users: Add > View'));
-	}else if(page === 'signup'){
-		res.render('/success', {
-	        title: 'Your Connected!',
-	        msg: 'You have successfully connected with '+req.body.users_email+'!',
-	    }, console.log('Landing: Sucess > View'));
+	}else{
+		var title = 'Your Connected!';
+		var msg = 'You have successfully connected with '+req.body.users_email+'!';
+		var set = true;
+		res.redirect('/success')(title, msg, set);
 	}
 };
 
